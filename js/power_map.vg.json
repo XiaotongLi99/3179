@@ -1,0 +1,34 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 400,
+    "title": "Global Power Plant",
+    "projection": {"type": "equalEarth"},
+    "layer": [
+    {
+    "data": {
+    "url":
+   "https://raw.githubusercontent.com/XiaotongLi99/3179-Wee9/main/js/custom.geo%20topojson.json"
+   ,
+    "format": {"type": "topojson", "feature": "custom.geo"}
+    },
+    "mark": {"type": "geoshape", "fill": "lightsteelblue", "stroke": "lightskyblue"}
+    },
+    {
+    "data": {
+    "url": "https://raw.githubusercontent.com/XiaotongLi99/3179-Wee9/main/data/global_power_plant_database.csv"
+    },
+   "mark": {"type": "circle", "tooltip": {"content": "data"}},
+    "encoding": {
+    "longitude": {"field": "longitude", "type": "quantitative"},
+    "latitude": {"field": "latitude", "type": "quantitative"},
+    "size": {"value": 2},
+    "color": {
+    "field": "capacity_mw",
+    "type": "quantitative",
+    "scale": {"scheme": "reds"}
+    }
+    }
+    }
+    ]
+   }
